@@ -139,10 +139,10 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 					<h2 className='text-3xl font-creteRound'>{blog.author.name}</h2>
 					<p className='line-clamp-2 text-muted-foreground'>{blog.author.about}</p>
 					<Link
-						href={`/projects`}
+						href={`/author`}
 						className='flex items-center gap-2 hover:text-blue-500 underline transition-colors'
 					>
-						<span>See all posts by this author</span>
+						<span>Hammasini ko'rish</span>
 						<ArrowUpRight />
 					</Link>
 				</div>

@@ -15,7 +15,7 @@ function Navbar() {
 		<div className='h-[10vh] backdrop-blur-sm border-b fixed z-40 inset-0 bg-background'>
 			<div className='md:px-24 px-10 mx-auto h-[10vh] w-full flex items-center justify-between'>
 				{/* Logo */}
-				<Link href={'/'} className='relative'>
+				<Link href={'/'}>
 					<Logo className='text-gray-400 md:w-14 md:h-14 w-10 h-10' />
 				</Link>
 

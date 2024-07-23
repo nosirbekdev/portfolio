@@ -24,18 +24,18 @@ export function CardProject({ projects }: ProjectsPageComponent) {
 				{projects.map((project, index) => (
 					<motion.div
 						key={project.slug}
-						className='relative'
+						className='relative docs-creator'
 						initial={{ opacity: 0, y: index % 2 === 0 ? -100 : 100 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: index * 0.2 }}
 					>
 						<div className='absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] rounded-full blur-3xl' />
-						<div className='relative shadow-xl bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start'>
-							<h1 className='font-bold text-xl text-gray-900 dark:text-white mb-4 relative z-10'>
+						<div className='relative docs-creator shadow-xl bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start'>
+							<h1 className='font-bold text-xl text-gray-900 dark:text-white mb-4 relative docs-creator z-10'>
 								{project.title}
 							</h1>
 
-							<p className='font-normal text-base text-gray-700 dark:text-slate-500 mb-4 relative z-10 line-clamp-4'>
+							<p className='font-normal text-base text-gray-700 dark:text-slate-500 mb-4 relative docs-creator z-10 line-clamp-4'>
 								{project.expect}
 							</p>
 
