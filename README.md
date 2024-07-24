@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio Website - Next.js with Tailwind CSS
 
-## Getting Started
+Welcome to the GitHub repository for my portfolio website built using Next.js, Tailwind CSS, and other awesome technologies!
 
-First, run the development server:
+![image](https://github.com/user-attachments/assets/c20f11f3-4bdc-4a2e-80b6-2dc788e2bc5f)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## <a href="https://nosirbek-portfolio.vercel.app/">Live demo</a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Introduction
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This portfolio website is a showcase of my skills and projects. It's crafted with attention to detail, incorporating the latest web development trends to create a visually appealing and user-friendly experience.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
+<ul>
+  <li>
+    <span>
+      Next.js Framework:
+    </span>
+    Utilizing the power of Next.js for a seamless and performant web experience.
+  </li>
+  <li>
+    <span>
+      Tailwind CSS Styling:
+    </span>
+    The UI is designed with Tailwind CSS, ensuring a clean and responsive layout.
+  </li>
+  <li>
+    <span>
+     Hygraph Integration: 
+    </span>
+   The projects page is dynamically generated and seamlessly integrated with Hygraph for a professional look.
+  </li>
+  <li>
+    <span>
+      SEO Optimization:
+    </span>
+    The entire website is optimized for search engines to ensure maximum visibility.
+  </li>
+  <li>
+    <span>
+      Animations:
+    </span>
+     Engage your visitors with subtle and elegant animations throughout the site.
+  </li>
+</ul>
 
-## Learn More
+## Getting Start
 
-To learn more about Next.js, take a look at the following resources:
+To run this project locally, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Clone the repository: ```git clone https://github.com/nosirbek030381/portfolio.git``` <br />
+Install dependencies: ```npm install``` <br />
+Start the development server: ```npm run dev```  <br /> <br />
+Visit
+<a href="localhost:3000"> localhost:3000 </a> 
+in your browser to see your portfolio in action!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Nextjs
+- TypeScript
+- TailwindCSS
+- Shadcn UI
+- Animation
+- Framer Motion 
+- Hygraph
+- Graphql
+- SEO
+- SSR
+- Dark and light mode
