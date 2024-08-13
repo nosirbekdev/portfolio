@@ -28,7 +28,7 @@ function ShareBtns({ slug }: any) {
 				</Link>
 			</Button>
 			<Button size={'icon'} variant={'outline'}>
-				<Link href={'https://www.instagram.com/nosirbek030381'} target='_blank'>
+				<Link href={'https://www.instagram.com/nosirbek.dev'} target='_blank'>
 					<Instagram />
 				</Link>
 			</Button>
