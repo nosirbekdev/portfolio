@@ -18,12 +18,12 @@ function ShareBtns({ slug }: any) {
 	return (
 		<div className='flex flex-col max-md:flex-row md:space-y-3 max-md:space-x-3 mt-4'>
 			<Button size={'icon'} variant={'outline'}>
-				<Link href={'https://x.com/nosirbek030381'} target='_blank'>
+				<Link href={'https://x.com/nosirbekdev'} target='_blank'>
 					<Twitter />
 				</Link>
 			</Button>
 			<Button size={'icon'} variant={'outline'}>
-				<Link href={'https://www.facebook.com/nosirbek030381'} target='_blank'>
+				<Link href={'https://www.facebook.com/nosirbek.dev'} target='_blank'>
 					<Facebook />
 				</Link>
 			</Button>
@@ -38,7 +38,7 @@ function ShareBtns({ slug }: any) {
 				</Link>
 			</Button>
 			<Button size={'icon'} variant={'outline'}>
-				<Link href={'https://www.linkedin.com/in/nosirbek030381'} target='_blank'>
+				<Link href={'https://www.linkedin.com/in/nosirbekdev'} target='_blank'>
 					<Linkedin />
 				</Link>
 			</Button>
