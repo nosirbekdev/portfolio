@@ -31,7 +31,7 @@ export default function HomePageComponent() {
 				</p>
 
 				<div className='shadow-mdhover:border-transparent inline-block cursor-pointer rounded border-2 border-blue-600 px-8  py-1'>
-					<Link href={'/Resume.pdf'} target='_blank'>
+					<Link href={'/resume.pdf'} target='_blank'>
 						<Button
 							variant={'default'}
 							className='bg-transparent text-base text-blue-600 hover:bg-transparent'
