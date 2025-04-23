@@ -22,8 +22,8 @@ export const getProjects = async () => {
 				tags {
 					html
 				}
-				url
 				expect
+				url
 				githubUrl
 				description {
 					html
