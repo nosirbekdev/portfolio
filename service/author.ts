@@ -12,8 +12,8 @@ export const getAuthor = async () => {
 				about
 				blog {
 					githubUrl
-					expect
 					title
+					expect
 					url
 					slug
 					id
