@@ -26,12 +26,12 @@ export default function HomePageComponent() {
 			<Fade direction='up' triggerOnce={true}>
 				<p className='my-8 max-w-2xl font-workSans text-lg font-medium leading-6 tracking-wider text-slate-400'>
 					Assalomu alaykum! Men Nosirbek, hozirda Frontend dasturchisiman. Men ReactJS va NextJS
-					kutubxonalari bilan ishlashda 1 yildan ortiq tajribaga egaman. Asosiy ixtisoslashuvim
+					kutubxonalari bilan ishlashda 2 yildan ortiq tajribaga egaman. Asosiy ixtisoslashuvim
 					ReactJS va NextJS yordamida veb ilovalarni ishlab chiqishdir.
 				</p>
 
 				<div className='shadow-mdhover:border-transparent inline-block cursor-pointer rounded border-2 border-blue-600 px-8  py-1'>
-					<Link href={'/resume.pdf'} target='_blank'>
+					<Link href={'https://www.canva.com/design/DAGK0U1HJls/3uXCvaU7VFWC20eOf06-Mg/view?utm_content=DAGK0U1HJls&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h953fa3a67a'} target='_blank'>
 						<Button
 							variant={'default'}
 							className='bg-transparent text-base text-blue-600 hover:bg-transparent'
