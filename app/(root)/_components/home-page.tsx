@@ -25,7 +25,7 @@ export default function HomePageComponent() {
 
 			<Fade direction='up' triggerOnce={true}>
 				<p className='my-8 max-w-2xl font-workSans text-lg font-medium leading-6 tracking-wider text-slate-400'>
-					Assalomu alaykum! Men Nosirbek, hozirda Frontend dasturchisiman. Men ReactJS va NextJS
+					Assalomu alaykum! Men Nosirbek, hozirda FullStack (MERN) dasturchisiman. Men ReactJS va NextJS
 					kutubxonalari bilan ishlashda 2 yildan ortiq tajribaga egaman. Asosiy ixtisoslashuvim
 					ReactJS va NextJS yordamida veb ilovalarni ishlab chiqishdir.
 				</p>
