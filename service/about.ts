@@ -20,10 +20,10 @@ export const AboutService = {
 						url
 					}
 					start
-					stoped
 					certificate {
 						url
 					}
+					stoped
 					url
 				}
 			}
