@@ -2,7 +2,7 @@
 'use client';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { TracingBeam } from '@/components/ui/tracong-beam';
+import { TracingBeam } from '@/components/ui/tracing-beam';
 import { AboutType } from '@/interfaces/about';
 import { motion } from 'framer-motion';
 import parse, { domToReact } from 'html-react-parser';
@@ -20,19 +20,19 @@ export function AboutPageComponent({ cards }: AboutPageComponentProps) {
 			<div className='max-w-4xl mx-auto antialiased relative'>
 				{cards.map((item, index) => (
 					<motion.div
-						key={`content-${index}`}
+						key={item.id}
 						className='mb-10 mt-10'
 						initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.5, delay: index * 0.3 }}
 					>
-						<p
+						<h2
 							className={twMerge(
 								'text-shadow-md text-5xl font-semibold uppercase text-slate-300 sm:text-6xl md:text-7xl lg:text-8xl'
 							)}
 						>
 							{item.title}
-						</p>
+						</h2>
 
 						<div className='text-lg prose prose-sm dark:prose-invert font-workSans'>
 							<div className='mb-3 text-gray-400'>{item.expect}</div>
@@ -58,11 +58,12 @@ export function AboutPageComponent({ cards }: AboutPageComponentProps) {
 							</div>
 							<div className='mb-3 lg:space-x-2 space-x-1'>
 								{item.certificate?.url && (
-									<Button className='text-lg ' variant={'destructive'}>
+									<Button asChild className='text-lg ' variant={'destructive'}>
 										<Link
 											href={`${item.certificate?.url}`}
 											className='relative docs-creator'
 											target='_blank'
+											rel='noopener noreferrer'
 										>
 											Kurs sertifikati
 										</Link>
@@ -70,10 +71,16 @@ export function AboutPageComponent({ cards }: AboutPageComponentProps) {
 								)}
 								{item.url && (
 									<Button
+										asChild
 										className='text-lg border border-blue-500 mt-2 md:mt-0'
 										variant={'outline'}
 									>
-										<Link href={`${item.url}`} className='relative docs-creator' target='_blank'>
+										<Link
+											href={`${item.url}`}
+											className='relative docs-creator'
+											target='_blank'
+											rel='noopener noreferrer'
+										>
 											Kursni ko'rish
 										</Link>
 									</Button>
@@ -83,9 +90,10 @@ export function AboutPageComponent({ cards }: AboutPageComponentProps) {
 								{item?.image && (
 									<Image
 										src={item.image.url}
-										alt='blog thumbnail'
-										height='100'
-										width='400'
+										alt={item.title}
+										height={100}
+										width={400}
+										sizes='(max-width: 768px) 100vw, 400px'
 										className='rounded-lg mb-10 object-cover'
 									/>
 								)}

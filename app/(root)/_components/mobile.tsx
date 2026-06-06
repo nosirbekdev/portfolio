@@ -3,7 +3,7 @@
 import Logo from '@/components/shared/logo';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { navLinks } from '@/constants';
 import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
@@ -22,12 +22,13 @@ const Mobile = () => {
 	return (
 		<Sheet open={open} onOpenChange={setOpen}>
 			<SheetTrigger asChild className='flex md:hidden'>
-				<Button size={'icon'} variant={'ghost'}>
+				<Button size={'icon'} variant={'ghost'} aria-label='Open menu'>
 					<Menu />
 				</Button>
 			</SheetTrigger>
 			<SheetContent side={'left'}>
-				<Link href={'/'}>
+				<SheetTitle className='sr-only'>Navigation menu</SheetTitle>
+				<Link href={'/'} aria-label='Home'>
 					<Logo />
 				</Link>
 				<Separator className='my-3' />

@@ -15,13 +15,11 @@ function Navbar() {
 		<div className='h-[10vh] backdrop-blur-sm border-b fixed z-40 inset-0 bg-background'>
 			<div className='md:px-24 px-10 mx-auto h-[10vh] w-full flex items-center justify-between'>
 				{/* Logo */}
-				<Link href={'/'}>
+				<Link href={'/'} aria-label='Home'>
 					<Logo className='text-gray-400 md:w-14 md:h-14 w-10 h-10' />
 				</Link>
 
-				{/* Search */}
 				<div className='flex items-center gap-1'>
-					{/* <GlobalSearch /> */}
 					{/* Nav links */}
 					<div className='gap-2 hidden md:flex font-workSans'>
 						{navLinks.map(nav => (

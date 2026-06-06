@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { contactSchema } from '@/lib/validation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Send } from 'lucide-react';
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { Fade } from 'react-awesome-reveal';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -29,28 +29,39 @@ const ContactForm = () => {
 
 	function onSubmit(values: z.infer<typeof contactSchema>) {
 		setIsLoading(true);
-		const tgBot = process.env.NEXT_PUBLIC_TG_BOT_API!;
-		const tgChatID = process.env.NEXT_PUBLIC_TG_CHAT_ID!;
+		const tgBot = process.env.NEXT_PUBLIC_TG_BOT_API;
+		const tgChatID = process.env.NEXT_PUBLIC_TG_CHAT_ID;
 
-		const promise = fetch(`https://api.telegram.org/bot${tgBot}/sendMessage`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'cache-control': 'no-cache',
-			},
-			body: JSON.stringify({
-				chat_id: tgChatID,
-				text: `
+		const promise = (async () => {
+			if (!tgBot || !tgChatID) {
+				throw new Error('Telegram bot is not configured');
+			}
+
+			const res = await fetch(`https://api.telegram.org/bot${tgBot}/sendMessage`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'cache-control': 'no-cache',
+				},
+				body: JSON.stringify({
+					chat_id: tgChatID,
+					text: `
           Name: ${values.name}
           Email: ${values.email}
           Phone: ${values.phone}
           Telegram User: ${values.telegramUser}
           Message: ${values.message}
         `,
-			}),
-		})
-			.then(() => form.reset())
-			.finally(() => setIsLoading(false));
+				}),
+			});
+
+			if (!res.ok) {
+				throw new Error(`Telegram request failed with status ${res.status}`);
+			}
+
+			form.reset();
+		})().finally(() => setIsLoading(false));
+
 		toast.promise(promise, {
 			loading: 'Loading...',
 			success: 'Successfully sent',
@@ -58,7 +69,7 @@ const ContactForm = () => {
 		});
 	}
 
-	const handleTelegramUserChange = (e: any) => {
+	const handleTelegramUserChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
 		if (!value.startsWith('@')) {
 			form.setValue('telegramUser', '@' + value);

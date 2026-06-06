@@ -1,7 +1,6 @@
 import { IAuthors } from '@/interfaces/author';
-import request, { gql } from 'graphql-request';
-
-const graphqlAPI = process.env.NEXT_PUBLIC_HYPOGRAPH_ENDPOINT!;
+import { gqlRequest } from '@/lib/graphql';
+import { gql } from 'graphql-request';
 
 export const getAuthor = async () => {
 	const query = gql`
@@ -27,6 +26,6 @@ export const getAuthor = async () => {
 			}
 		}
 	`;
-	const { authors } = await request<{ authors: IAuthors[] }>(graphqlAPI, query);
+	const { authors } = await gqlRequest<{ authors: IAuthors[] }>(query);
 	return authors;
 };

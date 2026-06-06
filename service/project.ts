@@ -1,8 +1,7 @@
+import { gqlRequest } from '@/lib/graphql';
 import { IProject } from '@/interfaces/projects';
-import request, { gql } from 'graphql-request';
+import { gql } from 'graphql-request';
 import { cache } from 'react';
-
-const graphqlAPI = process.env.NEXT_PUBLIC_HYPOGRAPH_ENDPOINT!;
 
 export const getProjects = async () => {
 	const query = gql`
@@ -39,7 +38,7 @@ export const getProjects = async () => {
 			}
 		}
 	`;
-	const { blogs } = await request<{ blogs: IProject[] }>(graphqlAPI, query);
+	const { blogs } = await gqlRequest<{ blogs: IProject[] }>(query);
 	return blogs;
 };
 
@@ -82,6 +81,6 @@ export const getProjectDetail = cache(async (slug: string) => {
 		}
 	`;
 
-	const { blog } = await request<{ blog: IProject }>(graphqlAPI, query, { slug });
+	const { blog } = await gqlRequest<{ blog: IProject | null }>(query, { slug });
 	return blog;
 });

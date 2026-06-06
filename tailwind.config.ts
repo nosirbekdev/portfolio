@@ -71,6 +71,8 @@ const config: Config = {
 			fontFamily: {
 				creteRound: ['var(--font-creteRound)'],
 				workSans: ['var(--font-workSans)'],
+				inter: ['var(--font-inter)'],
+				firacode: ['var(--font-firacode)', 'monospace'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -102,12 +104,12 @@ const config: Config = {
 				'meteor-effect': 'meteor 5s linear infinite',
 			},
 		},
-		plugins: [
-			require('tailwindcss-animate'),
-			require('@tailwindcss/typography'),
-			addVariablesForColors,
-		],
 	},
+	plugins: [
+		require('tailwindcss-animate'),
+		require('@tailwindcss/typography'),
+		addVariablesForColors,
+	],
 };
 
 export default config;

@@ -16,7 +16,7 @@ const AuthorPage = async () => {
 						{author.name}
 					</h1>
 					<div className='flex flex-wrap flex-row w-[70%]'>
-						<p className='text-gray-300'>{author.about}</p>
+						{/* <p className='text-gray-300'>{author.about}</p> */}
 					</div>
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 						{author.blog.map(item => (

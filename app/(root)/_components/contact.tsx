@@ -17,17 +17,17 @@ const ContactPageComponent = () => {
 					<div className='space-y-4'>
 						<Link
 							className='flex items-center gap-5 rounded-md border-2  px-5 py-4 shadow transition-all duration-200 hover:border-blue-700 hover:bg-blue-500/10'
-							href='tel:+998883182003'
+							href='tel:+998996791619'
 						>
 							<Phone className='text-blue-600' size={25} />{' '}
-							<span className='text-slate-400'>+998883182003</span>
+							<span className='text-slate-400'>+998996791619</span>
 						</Link>
 						<Link
 							className='flex items-center gap-5 rounded-md border-2 px-5 py-4 shadow hover:border-blue-700 hover:bg-blue-500/10'
-							href='mailto:ni761809@gmail.com'
+							href='mailto:nosirbekdev@gmail.com'
 						>
 							<Mail className='text-blue-600' size={25} />{' '}
-							<span className='text-slate-400'>ni761809@gmail.com</span>
+							<span className='text-slate-400'>nosirbekdev@gmail.com</span>
 						</Link>
 						<Link
 							className='flex items-center gap-5 rounded-md border-2 px-5 py-4 shadow hover:border-blue-700 hover:bg-blue-500/10'

@@ -1,27 +1,46 @@
 import { Badge } from '@/components/ui/badge';
 import { getReadingTime } from '@/lib/utils';
-import { getProjectDetail } from '@/service/project';
+import { getProjectDetail, getProjects } from '@/service/project';
 import { format } from 'date-fns';
 import parse, { domToReact } from 'html-react-parser';
 import { ArrowUpRight, CalendarDays, Clock, Minus } from 'lucide-react';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import ShareBtns from '../../_components/share-btns';
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+	const projects = await getProjects();
+	return projects.map(project => ({ slug: project.slug }));
+}
+
+export async function generateMetadata({
+	params,
+}: {
+	params: { slug: string };
+}): Promise<Metadata> {
 	const blog = await getProjectDetail(params.slug);
+
+	if (!blog) return { title: 'Project not found' };
 
 	return {
 		title: blog.title,
-		description: blog.description,
+		description: blog.expect,
 		openGraph: {
-			images: blog.image.url,
+			title: blog.title,
+			description: blog.expect,
+			images: [{ url: blog.image.url }],
 		},
 	};
 }
 
 async function SlugPage({ params }: { params: { slug: string } }) {
 	const blog = await getProjectDetail(params.slug);
+
+	if (!blog) notFound();
 
 	return (
 		<div className='pt-[15vh] max-w-5xl mx-auto'>
@@ -31,7 +50,7 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 				<div className='flex items-center gap-2'>
 					<Image
 						src={blog.author.avatar.url}
-						alt='author'
+						alt={blog.author.name}
 						width={30}
 						height={30}
 						className='object-cover rounded-sm'
@@ -52,9 +71,11 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 
 			<Image
 				src={blog.image.url}
-				alt='alt'
-				width={`1120`}
-				height={`595`}
+				alt={blog.title}
+				width={1120}
+				height={595}
+				priority
+				sizes='(max-width: 1024px) 100vw, 1120px'
 				className='mt-4 rounded-md'
 			/>
 
@@ -130,9 +151,9 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 			<div className='flex mt-6 gap-6 items-center max-md:flex-col'>
 				<Image
 					src={blog.author.avatar.url}
-					alt='author'
-					width='155'
-					height='155'
+					alt={blog.author.name}
+					width={155}
+					height={155}
 					className='rounded-md max-md:self-start'
 				/>
 				<div className='flex-1 flex flex-col space-y-4'>

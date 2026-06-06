@@ -31,9 +31,9 @@ export function CardProject({ projects }: ProjectsPageComponent) {
 					>
 						<div className='absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] rounded-full blur-3xl' />
 						<div className='relative docs-creator shadow-xl bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-800 px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start'>
-							<h1 className='font-bold text-xl text-gray-900 dark:text-white mb-4 relative docs-creator z-10'>
+							<h2 className='font-bold text-xl text-gray-900 dark:text-white mb-4 relative docs-creator z-10'>
 								{project.title}
-							</h1>
+							</h2>
 
 							<p className='font-normal text-base text-gray-700 dark:text-slate-500 mb-4 relative docs-creator z-10 line-clamp-4'>
 								{project.expect}
@@ -44,6 +44,7 @@ export function CardProject({ projects }: ProjectsPageComponent) {
 								alt={project.title}
 								width={600}
 								height={600}
+								sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
 								className='mb-4'
 							/>
 
@@ -74,14 +75,18 @@ export function CardProject({ projects }: ProjectsPageComponent) {
 
 							<div className='flex justify-between w-full mt-5'>
 								<Button
+									asChild
 									variant={'ghost'}
 									className='border px-4 py-1 rounded-lg border-gray-300 dark:border-gray-500 text-gray-700 dark:text-gray-300 text-base'
 								>
-									<Link href={project.url} target='_blank'>
+									<Link href={project.url} target='_blank' rel='noopener noreferrer'>
 										Ko'rish
 									</Link>
 								</Button>
-								<Button className='border px-4 py-1 rounded-lg border-gray-300 dark:border-gray-500 hover:bg-gray-300 dark:hover:bg-gray-300 text-base bg-gray-500  dark:bg-slate-50'>
+								<Button
+									asChild
+									className='border px-4 py-1 rounded-lg border-gray-300 dark:border-gray-500 hover:bg-gray-300 dark:hover:bg-gray-300 text-base bg-gray-500  dark:bg-slate-50'
+								>
 									<Link href={`/projects/${project.slug}`}>Batafsil</Link>
 								</Button>
 							</div>

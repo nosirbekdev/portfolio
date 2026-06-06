@@ -5,6 +5,11 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
+/** Full calendar years elapsed since the given year (auto-increments each year). */
+export function getYearsSince(startYear: number) {
+	return Math.max(0, new Date().getFullYear() - startYear);
+}
+
 export function getReadingTime(content: string) {
 	const WPS = 250 / 60;
 
@@ -30,11 +35,7 @@ export function getReadingTime(content: string) {
 		images -= 1;
 	}
 
-	const minutes = Math.ceil(((words - imageAdjust) / WPS + imageSecs) / 60);
+	const minutes = Math.max(1, Math.ceil((Math.max(0, words - imageAdjust) / WPS + imageSecs) / 60));
 
-	if (minutes < 9) {
-		return '0' + minutes;
-	} else {
-		return minutes;
-	}
+	return String(minutes).padStart(2, '0');
 }
